@@ -1,0 +1,22 @@
+{
+  "telegram": {
+    "bot_token": "123456:PASTE-YOUR-BOTFATHER-TOKEN"
+  },
+  "access": {
+    "allowed_user_ids": [111111111]
+  },
+  "whisper": {
+    "cli_path": "/path/to/whisper-cli",
+    "ffmpeg_path": "ffmpeg",
+    "threads": 4,
+    "timeout_seconds": 1800,
+    "models": {
+      "large-v3-turbo": "/path/to/ggml-large-v3-turbo.bin",
+      "large-v3-q5_0": "/path/to/ggml-large-v3-q5_0.bin"
+    }
+  },
+  "paths": {
+    "work_dir": "data/tmp",
+    "settings_file": "data/settings.json"
+  }
+}

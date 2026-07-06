@@ -1,0 +1,14 @@
+[Unit]
+Description=Whisper Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=mg
+WorkingDirectory=/home/mg/apps/whisper-tg-bot
+ExecStart=/home/mg/apps/whisper-tg-bot/.venv/bin/python -m whisper_bot
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
