@@ -62,7 +62,9 @@ cd whisper.cpp
 
 cmake -B build && cmake --build build -j --config Release
 
-sh ./models/[download-ggml-model.sh](http://download-ggml-model.sh) large-v3-turbo
+sh ./models/download-ggml-model.sh large-v3-turbo
+
+sh ./models/download-ggml-model.sh large-v3-q5_0
 
 ```
 
@@ -211,46 +213,6 @@ nano config.json               # paths for that machine
 sudo cp deploy/whisper-bot.service /etc/systemd/system/
 
 sudo systemctl enable --now whisper-bot
-
-```
-
-## 🗂 Project structure
-
-```
-
-whisper.cpp-telegram-bot/
-
-├── config.example.json        # config template (copy to config.json)
-
-├── requirements.txt
-
-├── deploy/
-
-│   ├── [setup.sh](http://setup.sh)               # one-shot setup: venv + deps
-
-│   └── whisper-bot.service    # systemd unit
-
-└── whisper_bot/
-
-├── **main**.py            # entry point: python -m whisper_bot
-
-├── [app.py](http://app.py)                 # wiring: handlers, auth, error handling
-
-├── [config.py](http://config.py)              # typed config loading + startup validation
-
-├── settings_[store.py](http://store.py)      # persisted per-user language/model prefs
-
-├── [transcriber.py](http://transcriber.py)         # ffmpeg + whisper-cli subprocesses, streaming
-
-├── [worker.py](http://worker.py)              # single-job FIFO queue + live message edits
-
-└── handlers/
-
-├── [audio.py](http://audio.py)           # download + enqueue
-
-├── [commands.py](http://commands.py)        # /start, unauthorized replies
-
-└── [settings.py](http://settings.py)        # /settings inline keyboard
 
 ```
 
