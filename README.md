@@ -206,7 +206,7 @@ ssh newserver
 
 cd ~/apps/whisper.cpp-telegram-bot
 
-bash deploy/[setup.sh](http://setup.sh)
+bash deploy/setup.sh
 
 nano config.json               # paths for that machine
 
